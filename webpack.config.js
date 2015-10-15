@@ -17,6 +17,7 @@ var config = {
   },
   externals: {
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       { 
@@ -29,15 +30,15 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css")
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap")
       },
       { 
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract("style", "css!less")
+        loader: ExtractTextPlugin.extract("css?sourceMap!less?sourceMap")
       },
       { 
         test: /\.(png|jpg)$/, 
@@ -64,7 +65,6 @@ var config = {
   resolve: {
     extensions: ["", ".coffee", ".js"]
   },
-  devtool: 'source-map',
   plugins: [
     new ExtractTextPlugin("[name].css")
   ]

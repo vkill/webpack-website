@@ -1,6 +1,5 @@
-require("bootstrap/less/bootstrap.less");
 require("./admin/styles/signin.css");
-require("./admin/styles/app.scss");
+require("./admin/styles/app.less");
 
 var APP = require("./admin/scripts/app.js");
 
