@@ -33,7 +33,7 @@ gulp.task('static', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./dist/**/*.*'], ['static']);
+  gulp.watch(['./dist/'], ['static']);
 });
 
 gulp.task('default', ['clean', 'webpack']);
