@@ -12,7 +12,7 @@ var config = {
   },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].bundle.js",
+    filename: "[name].js",
     chunkFilename: "[chunkhash].js"
   },
   externals: {

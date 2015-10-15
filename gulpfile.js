@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
+var connect = require('gulp-connect');
 
 var named = require('vinyl-named');
 
@@ -18,5 +19,30 @@ gulp.task('webpack', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    root: 'public',
+    livereload: true
+  });
+});
+
+gulp.task('static', function() {
+  return gulp.src(['./dist/**/*.*', '!./dist/.keep'])
+    .pipe(gulp.dest('./public/static/'))
+    .pipe(connect.reload());
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['./dist'], ['static']);
+});
+
 gulp.task('default', ['clean', 'webpack']);
+
+gulp.task('dev', ['clean', 'webpack', 'static', 'connect', 'watch']);
+
+
+
+
+
+
 
