@@ -6,7 +6,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
   watch: true,
-  cache: false,
+  cache: true,
   entry: {
     admin: './src/admin'
   },
@@ -34,11 +34,11 @@ var config = {
       },
       { 
         test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract("css?sourceMap!sass?sourceMap")
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap")
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract("css?sourceMap!less?sourceMap")
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap!less?sourceMap")
       },
       { 
         test: /\.(png|jpg)$/, 

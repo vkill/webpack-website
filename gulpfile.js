@@ -33,12 +33,12 @@ gulp.task('static', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./dist'], ['static']);
+  gulp.watch(['./dist/**/*.*'], ['static']);
 });
 
 gulp.task('default', ['clean', 'webpack']);
 
-gulp.task('dev', ['clean', 'webpack', 'static', 'connect', 'watch']);
+gulp.task('dev', ['clean', 'connect', 'watch', 'webpack', 'static']);
 
 
 
